@@ -1,5 +1,16 @@
 import { useState, useEffect } from "react";
 import { getPokemons } from "./api";
+import Card from "./components/Card";
+
+// Função para embaralhar (Fisher–Yates)
+function shuffleArray(array) {
+  const copy = [...array];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
 
 export default function App() {
   const [cards, setCards] = useState([]);
@@ -32,25 +43,15 @@ export default function App() {
           <p style={{ opacity: 0.6 }}>Carregando cartas...</p>
         ) : (
           cards.map((card) => (
-            <div
+            <Card
               key={card.id}
-              className="card"
-              style={{
-                background: "#161b22",
-                padding: "12px",
-                borderRadius: "8px",
-                textAlign: "center",
+              image={card.image}
+              name={card.name}
+              onClick={() => {
+                // embaralhar cartas ao clicar
+                setCards((prev) => shuffleArray(prev));
               }}
-            >
-              <img
-                src={card.image}
-                alt={card.name}
-                style={{ width: "100%", height: "100px", objectFit: "contain" }}
-              />
-              <p style={{ marginTop: "8px", textTransform: "capitalize" }}>
-                {card.name}
-              </p>
-            </div>
+            />
           ))
         )}
       </main>
