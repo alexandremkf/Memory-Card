@@ -1,6 +1,7 @@
 export default function Card({ image, name, onClick }) {
   return (
     <div
+      className="card-hover"
       onClick={onClick}
       style={{
         width: "140px",
