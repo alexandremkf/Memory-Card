@@ -1,22 +1,21 @@
 export default function Card({ image, name, onClick }) {
   return (
     <div
-      className="card-hover"
-      onClick={onClick}
+      className="card card-hover"
       style={{
         width: "140px",
         height: "180px",
         borderRadius: "12px",
-        padding: "10px",
+        cursor: "pointer",
         background: "#1e1e1e",
         border: "2px solid #4f46e5",
+        padding: "10px",
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
         justifyContent: "center",
-        cursor: "pointer",
-        transition: "0.25s",
+        alignItems: "center",
       }}
+      onClick={onClick}
     >
       <img
         src={image}
