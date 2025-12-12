@@ -1,23 +1,34 @@
 export default function Card({ image, name, onClick }) {
   return (
     <div
-      className="card"
       onClick={onClick}
       style={{
-        background: "#161b22",
-        padding: "12px",
-        borderRadius: "8px",
-        textAlign: "center",
+        width: "140px",
+        height: "180px",
+        borderRadius: "12px",
+        padding: "10px",
+        background: "#1e1e1e",
+        border: "2px solid #4f46e5",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
         cursor: "pointer",
-        transition: "transform 0.15s",
+        transition: "0.25s",
       }}
     >
       <img
         src={image}
         alt={name}
-        style={{ width: "100%", height: "100px", objectFit: "contain" }}
+        style={{
+          width: "90px",
+          height: "90px",
+          objectFit: "contain",
+        }}
       />
-      <p style={{ marginTop: "8px", textTransform: "capitalize" }}>{name}</p>
+      <p style={{ marginTop: "10px", fontSize: "18px", color: "white" }}>
+        {name}
+      </p>
     </div>
   );
 }
